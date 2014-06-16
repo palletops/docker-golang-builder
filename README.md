@@ -1,7 +1,8 @@
 # docker-golang-builder
 
 An image that can build a go source repository.  All built artifacts
-from `GOPATH/bin` will be put into `/usr/local/bin`.  Available as
+from `GOPATH/bin` will be put into `/usr/local/bin`.  The golang
+compiler is not in the resulting image.  Available as
 [pallet/golang-builder][pallet-golang-builder].
 
 You should use this image to build your own images using a Dockerfile.
