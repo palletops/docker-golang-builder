@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# Build the go project at $GOREPO, installing all resulting binaries in /usr/local/bin,
+# and removing the golang compiler.
+
+source gorepo
+echo "Building $GOREPO"
+go get $GOREPO
