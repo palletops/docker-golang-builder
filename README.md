@@ -2,11 +2,16 @@
 
 An image that can build a go source repository.  All built artifacts
 from `GOPATH/bin` will be put into `/usr/local/bin`.  The golang
-compiler is not in the resulting image.  Available as
-[pallet/golang-builder][pallet-golang-builder].
+compiler is removed from the resulting image, as is any source
+installed by `go get`.
+
+Available as [pallet/golang-builder][pallet-golang-builder].
+
+## Usage
 
 You should use this image to build your own images using a Dockerfile.
-For example, to build an image for [helixdns][helixdns]:
+For example, to build an image for [helixdns][helixdns], you would
+create a `Dockerfile` that looks like:
 
 ```
 FROM pallet/golang-builder
@@ -24,6 +29,11 @@ For the helixdns example, this would be:
 ```
 GOREPO=github.com/mrwilson/helixdns
 ```
+
+Running `docker build` on this `Dockerfile` results in an image that
+contains the helixdns executable in `/usr/local/bin`, and no golang
+compiler or sources.
+
 
 ## License
 
